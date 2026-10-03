@@ -36,13 +36,20 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(gameObject.tag == collision.tag)
+        if(gameObject.CompareTag(collision.tag))
         {
             // Destroi a propria bala
             Destroy(gameObject);
 
             // Aqui vamos colocar o dano. 
-            Destroy(collision.gameObject);
+            if(collision.tag == "Enemy")
+            {
+                collision.gameObject.GetComponent<Enemy>().TakeDamage();
+            } else if (collision.tag == "Player")
+            {
+                collision.gameObject.GetComponent<PlayerController>().TakeDamage();
+            }
+ 
         }
     }
 }
