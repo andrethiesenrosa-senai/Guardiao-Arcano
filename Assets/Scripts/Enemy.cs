@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private GameManager gameManager;
     public GameObject bulletPrefab;
     public Transform origemTiro;
+    public GameObject explosion;
 
     private void Start()
     {
@@ -31,6 +32,8 @@ public class Enemy : MonoBehaviour
         if (vida == 0)
         {
             gameManager.GanharPontoInimigo();
+            
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -42,7 +45,7 @@ public class Enemy : MonoBehaviour
         transform.Translate(movement, Space.World);
 
         Vector3 p = transform.position;
-        p.x = Mathf.Clamp(p.x, 0, 7f);
+        p.x = Mathf.Clamp(p.x, 0, 14f);
         p.y = Mathf.Clamp(p.y, -4f, 4f);
         transform.position = p;
 

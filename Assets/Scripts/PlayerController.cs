@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private int vida = 5;
     public GameObject bulletPrefab;
     public Transform posicaoSaidaTiro;
-    public TMP_Text vidaJogador;
+
+    public HudVida hudVida;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
         vida--;
         AtualizarVida();
         // TODO Atualizar o canvas de vida do jogador.
-        Debug.Log("Tomei dano e estou com " +  vida);
+        
         if (vida <= 0) {
             Destroy(gameObject);
             // TODO Carregar a Cena de Derrota.
@@ -59,7 +60,6 @@ public class PlayerController : MonoBehaviour
 
     private void AtualizarVida()
     {
-        string texto = "Vidas: " + vida;
-        vidaJogador.text = texto;
+        hudVida.AtualizaVida(vida);
     }
 }
