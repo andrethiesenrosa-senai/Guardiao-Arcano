@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,6 +8,9 @@ public class Enemy : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform origemTiro;
     public GameObject explosion;
+
+    public GameObject coletavelVida;
+    public GameObject coletavelEscudo;
 
     private void Start()
     {
@@ -35,6 +37,20 @@ public class Enemy : MonoBehaviour
             
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            SortearColetavel();
+        }
+    }
+
+    private void SortearColetavel()
+    {
+        if(Random.value >= 0.8f)
+        {
+            if(Random.value >= 0.8f)
+            {
+                Instantiate(coletavelVida, transform.position, Quaternion.identity);
+            } else {
+                Instantiate(coletavelEscudo, transform.position, Quaternion.identity);
+            }
         }
     }
 

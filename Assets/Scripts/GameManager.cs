@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private int pontosInimigoAtual = 0;
     private int pontosChefeAtual = 0;
 
-    private int pontosInimigoAlvo = 5;
+    private int pontosInimigoAlvo = 25;
     private int pontosChefeAlvo = 1;
 
     public GameObject Enemy;
