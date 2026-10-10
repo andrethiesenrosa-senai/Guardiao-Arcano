@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
             // Aqui vamos colocar o dano. 
             if(collision.tag == "Enemy")
             {
-                collision.gameObject.GetComponent<Enemy>().TakeDamage();
+                collision.gameObject.GetComponent<Inimigo>().TakeDamage();
             } else if (collision.tag == "Player")
             {
                 collision.gameObject.GetComponent<PlayerController>().TakeDamage();

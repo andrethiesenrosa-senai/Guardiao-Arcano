@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1512208579782565672}
   - component: {fileID: 1634224576170182164}
   - component: {fileID: 423190632301828690}
+  - component: {fileID: 4047084016198898069}
   m_Layer: 0
   m_Name: SimpleEnemy
   m_TagString: Enemy
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2262345457485310185}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10e3d85d93a4e144db6b2708a7fe5807, type: 3}
   m_Name: 
@@ -176,6 +177,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -1.18}
   m_Size: {x: 11.02, y: 5.76}
   m_Direction: 1
+--- !u!114 &4047084016198898069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262345457485310185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e833912a462343469e135db530c598c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InimigoSimples
+  bulletPrefab: {fileID: 8563300408474054708, guid: c5cac20ca0414b54e8aba61d4ca93c71, type: 3}
+  explosionPrefab: {fileID: 3902646949132700836, guid: 3fb9ab868ffa299409f44dbf24e7375c, type: 3}
+  origemTiro:
+  - {fileID: 4735987711093162973}
+  coletavelVida: {fileID: 1398122372447973456, guid: 0baa3974ae2c77c4faaf9394c183aa29, type: 3}
+  coletavelEscudo: {fileID: 4338071016440889210, guid: 33c9d4e4bb513cc408ac71f2230800ec, type: 3}
 --- !u!1 &4928148388344572757
 GameObject:
   m_ObjectHideFlags: 0

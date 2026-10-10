@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private float velocidade = 4f;
     private int vida = 5;
-    private int vidaMaxima = 5;
+    const int VIDA_MAXIMA = 5;
     public GameObject bulletPrefab;
     public Transform posicaoSaidaTiro;
     private bool estaInvencivel = false;
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
     private void GanharVida()
     {
-        if(vida < vidaMaxima)
+        if(vida < VIDA_MAXIMA)
         {
             vida++;
             AtualizarVida();
