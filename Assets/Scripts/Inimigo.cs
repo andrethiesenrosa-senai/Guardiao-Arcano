@@ -39,6 +39,7 @@ public abstract class Inimigo : MonoBehaviour
     public virtual void TakeDamage()
     {
         vida--;
+        Debug.Log(vida);
         if(vida <= 0)
         {
             Morrer();

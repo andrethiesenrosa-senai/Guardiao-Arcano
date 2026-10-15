@@ -8,10 +8,11 @@ public class GameManager : MonoBehaviour
     private int pontosInimigoAtual = 0;
     private int pontosChefeAtual = 0;
 
-    private int pontosInimigoAlvo = 25;
+    private int pontosInimigoAlvo = 3;
     private int pontosChefeAlvo = 1;
 
     public GameObject Enemy;
+    public GameObject Boss;
 
     private void Start()
     {
@@ -20,20 +21,17 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        if(pontosInimigoAtual >= pontosInimigoAlvo)
-        {
-            CancelInvoke("SpawnEnemy");
-        }
-    }
 
     public void GanharPontoInimigo()
     {
         pontosInimigoAtual++;
         Debug.Log("Estou com " + pontosInimigoAtual + " pontos");
         AtualizarPlacar();
-
+        if (pontosInimigoAtual == pontosInimigoAlvo)
+        {
+            CancelInvoke("SpawnEnemy");
+            SpawnBoss();
+        }
     }
 
     private void AtualizarPlacar()
@@ -47,6 +45,12 @@ public class GameManager : MonoBehaviour
         var position = new Vector3(12f, Random.Range(-3.25f, 3.25f), 0);
         var enemy = Instantiate(Enemy, position, Enemy.transform.rotation);
         
+    }
+
+    private void SpawnBoss()
+    {
+        var position = new Vector3(12f, 0, 0);
+        var enemy = Instantiate(Boss, position, Quaternion.identity);
     }
 
 }

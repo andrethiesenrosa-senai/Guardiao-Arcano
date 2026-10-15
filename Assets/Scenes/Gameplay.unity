@@ -1549,6 +1549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   textoInimigo: {fileID: 1928335624}
   Enemy: {fileID: 2262345457485310185, guid: 5053a864f91f34841b2ab854dac8f715, type: 3}
+  Boss: {fileID: 270713161407653992, guid: de7df7d31ddd2394aaa137e2e6b1d2b4, type: 3}
 --- !u!4 &687086522
 Transform:
   m_ObjectHideFlags: 0
