@@ -13,6 +13,11 @@ public class Chefe : Inimigo
         velocidade = 2f;
         base.Start();
     }
+
+    protected override void MarcarPonto()
+    {
+        gameManager.GanharPontoChefe(); 
+    }
     protected override void Mover()
     {
         if(!movimentoInicial)

@@ -13,5 +13,10 @@ public class Coletaveis : MonoBehaviour
         Destroy(gameObject, duracao);
     }
 
+    private void Update()
+    {
+        transform.Translate(-1f * 4f * Time.deltaTime, 0, 0);
+    }
+
 
 }

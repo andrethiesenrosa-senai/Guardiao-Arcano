@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
     private int pontosInimigoAtual = 0;
     private int pontosChefeAtual = 0;
 
-    private int pontosInimigoAlvo = 3;
+    private int pontosInimigoAlvo = 25;
     private int pontosChefeAlvo = 1;
 
     public GameObject Enemy;
@@ -25,13 +26,31 @@ public class GameManager : MonoBehaviour
     public void GanharPontoInimigo()
     {
         pontosInimigoAtual++;
-        Debug.Log("Estou com " + pontosInimigoAtual + " pontos");
         AtualizarPlacar();
         if (pontosInimigoAtual == pontosInimigoAlvo)
         {
             CancelInvoke("SpawnEnemy");
             SpawnBoss();
         }
+    }
+
+    public void GanharPontoChefe()
+    {
+        pontosChefeAtual++;
+        if(pontosChefeAlvo == pontosChefeAtual)
+        {
+            Invoke(nameof(LoadVitoria), 2f);
+        }
+    }
+
+    private void LoadVitoria()
+    {
+        SceneManager.LoadScene("Vitoria");
+    }
+
+    private void LoadDerrota()
+    {
+        SceneManager.LoadScene("Derrota");
     }
 
     private void AtualizarPlacar()

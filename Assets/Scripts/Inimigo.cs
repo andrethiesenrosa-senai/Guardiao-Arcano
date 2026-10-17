@@ -4,6 +4,7 @@ public abstract class Inimigo : MonoBehaviour
 {
     protected float velocidade = 2f;
     protected int vida = 3;
+    protected bool isDead = false;
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] protected GameObject explosionPrefab;
 
@@ -33,13 +34,12 @@ public abstract class Inimigo : MonoBehaviour
 
     protected virtual void IniciarAtaque()
     {
-        InvokeRepeating("Atirar", 1f, 1f);
+        InvokeRepeating("Atirar", 3f, 1f);
     }
 
     public virtual void TakeDamage()
     {
         vida--;
-        Debug.Log(vida);
         if(vida <= 0)
         {
             Morrer();
@@ -48,8 +48,15 @@ public abstract class Inimigo : MonoBehaviour
 
     protected virtual void Morrer()
     {
-        gameManager.GanharPontoInimigo();
+        if (isDead) return;
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        MarcarPonto();
+        isDead = true;
+    }
+
+    protected virtual void MarcarPonto()
+    {
+        gameManager.GanharPontoInimigo();
     }
 }

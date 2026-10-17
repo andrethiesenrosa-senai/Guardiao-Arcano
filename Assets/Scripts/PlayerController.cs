@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private int vida = 5;
     const int VIDA_MAXIMA = 5;
     public GameObject bulletPrefab;
-    public Transform posicaoSaidaTiro;
+    public Transform[] posicaoSaidaTiro;
     private bool estaInvencivel = false;
     private bool estaComEscudo = false;
     private SpriteRenderer spriteRenderer;
@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(bulletPrefab, posicaoSaidaTiro.position, Quaternion.identity);
+            Instantiate(bulletPrefab, posicaoSaidaTiro[0].position, Quaternion.identity);
+            Instantiate(bulletPrefab, posicaoSaidaTiro[1].position, Quaternion.identity);
         }
     }
 
