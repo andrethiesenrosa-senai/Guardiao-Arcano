@@ -4,8 +4,6 @@ public class Chefe : Inimigo
 {
     protected bool movimentoInicial = false;
     protected float time;
-    private float valorMinimo = -2f;
-    private float valorMaximo = 2f;
     private float direction = 1f;
     protected override void Start()
     {
@@ -22,11 +20,9 @@ public class Chefe : Inimigo
     {
         if(!movimentoInicial)
         {
-            Debug.Log("Movimento Inicila");
             transform.Translate(velocidade * -1 * Time.deltaTime, 0, 0);
             if(transform.position.x < 6f)
             {
-                Debug.Log("Estou abaixo de 6?");
                 movimentoInicial=true;
             }
         } 
