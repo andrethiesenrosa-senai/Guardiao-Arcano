@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private bool estaComEscudo = false;
     private SpriteRenderer spriteRenderer;
     public SpriteRenderer escudo;
+    public ParticleSystem particulaTiro;
 
     public HudVida hudVida;
 
@@ -36,6 +35,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(bulletPrefab, posicaoSaidaTiro[0].position, Quaternion.identity);
             Instantiate(bulletPrefab, posicaoSaidaTiro[1].position, Quaternion.identity);
+            particulaTiro.Play();
         }
     }
 
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(AtivarInvencibilide());
         if (vida <= 0) {
             Destroy(gameObject);
-            // TODO Carregar a Cena de Derrota.
+            SceneManager.LoadScene("Derrota");
         }
     }
 
